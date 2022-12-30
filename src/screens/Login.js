@@ -13,8 +13,20 @@ import Button from '../components/Button';
 const Login = () => {
   return (
     <View style={styles.container}>
-      <ScrollView style={[styles.wrapper, styles.shadow]}>
-        <View style={styles.form}>
+      <ScrollView
+        style={[styles.shadow, {backgroundColor: 'orange', paddingBottom: 20}]}>
+        <View
+          style={[
+            styles.form,
+            styles.wrapper,
+            styles.shadow,
+            {
+              borderBottomLeftRadius: 100,
+              borderBottomRightRadius: 100,
+              paddingBottom: 70,
+              marginTop: 5,
+            },
+          ]}>
           <View style={styles.center}>
             <Image
               source={{
@@ -56,11 +68,23 @@ const Login = () => {
               </Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.menus}>
+        </View>
+        <View
+          style={[
+            styles.form,
+            styles.wrapper,
+            {
+              borderTopLeftRadius: 100,
+              borderTopRightRadius: 100,
+              paddingTop: 50,
+              marginTop: -40,
+            },
+          ]}>
+          <View style={[styles.menus, {marginTop: -70, paddingHorizontal: 25}]}>
             <Button>Login</Button>
             <Button>Register</Button>
           </View>
-          <View style={[styles.center, {marginTop: 10}]}>
+          <View style={[styles.center, {marginTop: 10, paddingBottom: 10}]}>
             <Text>Or connect with</Text>
             <View>
               <Button>Login with facebook</Button>
@@ -78,7 +102,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'orange',
-    padding: 10,
+    padding: 8,
   },
   wrapper: {
     backgroundColor: 'white',
@@ -86,6 +110,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderColor: 'rgba(243, 217, 173, 0.86)',
     borderWidth: 2,
+    borderBottomWidth: 0,
+    borderTopWidth: 0,
     height: '100%',
   },
   shadow: {
