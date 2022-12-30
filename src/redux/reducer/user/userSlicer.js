@@ -10,7 +10,9 @@ export const userSlice = createSlice({
       age: 19,
       gender: 'Male',
       address: 'Jalan cijembel rt rw 02 09 block sawo',
+      rating: 5,
     },
+    userProducs: [],
   },
   reducers: {
     setUsers: (state, actions) => {

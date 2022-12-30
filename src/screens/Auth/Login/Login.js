@@ -77,7 +77,7 @@ const Login = ({navigation}) => {
               borderTopRightRadius: 100,
               paddingTop: 50,
               marginTop: -40,
-              marginBottom: 3,
+              paddingBottom: 50,
             },
           ]}>
           <View style={[styles.menus, {marginTop: -70, paddingHorizontal: 25}]}>

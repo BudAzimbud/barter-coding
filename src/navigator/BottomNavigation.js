@@ -27,7 +27,7 @@ export default function BottomNavigation() {
         name="Home"
         component={Home}
         options={{
-          tabBarLabel: 'Candak',
+          tabBarLabel: 'Home',
           tabBarLabelStyle: {
             fontSize: 12,
             fontWeight: 'bold',
@@ -43,10 +43,11 @@ export default function BottomNavigation() {
         name="Create"
         component={Home}
         options={{
-          tabBarLabel: 'Monggo',
+          tabBarLabel: 'Post',
           tabBarLabelStyle: {
-            fontSize: 16,
+            fontSize: 12,
             fontWeight: 'bold',
+            zIndex: -1,
           },
           tabBarIcon: ({color}) => (
             <View
@@ -55,10 +56,11 @@ export default function BottomNavigation() {
                 borderColor: 'orange',
                 borderWidth: 5,
                 borderRadius: 50,
+                zIndex: 999,
                 height: 60,
                 width: 60,
                 backgroundColor: 'white',
-                marginTop: -40,
+                marginTop: -30,
                 alignItems: 'center',
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -72,7 +74,7 @@ export default function BottomNavigation() {
         name="Profile"
         component={Home}
         options={{
-          tabBarLabel: 'Muko',
+          tabBarLabel: 'Profile',
           tabBarLabelStyle: {
             fontSize: 12,
             fontWeight: 'bold',

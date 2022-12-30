@@ -1,13 +1,15 @@
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text, ScrollView, TextInput, StyleSheet} from 'react-native';
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {setUsers} from '../redux/reducer/user/userSlicer';
-
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Feather from 'react-native-vector-icons/Feather';
+import Card from '../components/Card';
 const Home = () => {
   const dispatch = useDispatch();
+  const {products} = useSelector(state => state.products);
   const {user} = useSelector(state => state.users);
   useEffect(() => {
-    console.log('dispatch set user');
     dispatch(
       setUsers({
         name: 'Azim Sucipta',
@@ -16,22 +18,82 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    console.log(user);
+    console.log(products);
   }, [dispatch]);
 
   return (
-    <ScrollView
-      style={{
-        backgroundColor: 'orange',
-        flex: 1,
-        padding: 8,
-        paddingBottom: 0,
-      }}>
-      <View style={{backgroundColor: 'white'}}>
-        <Text>Home</Text>
+    <View style={styles.container}>
+      <View style={styles.wrapper}>
+        <View style={styles.header}>
+          <View style={styles.profileHeader}>
+            <MaterialCommunityIcons
+              color={'orange'}
+              name="face-man-profile"
+              size={24}
+            />
+            <Text style={{color: 'orange'}}>{user.name}</Text>
+          </View>
+          <View style={styles.profileHeader}>
+            <MaterialCommunityIcons name="help" size={25} />
+            <Text>Help</Text>
+          </View>
+          <View style={styles.profileHeader}>
+            <Feather style={styles.searchIcon} name="search" size={15} />
+            <Text>Search barter</Text>
+          </View>
+        </View>
       </View>
-    </ScrollView>
+      <ScrollView style={[styles.wrapper]}>
+        <Text>See top list {'>'}</Text>
+        <View style={styles.listProduct}>
+          {products.map((data, idx) => (
+            <Card data={data} key={idx} />
+          ))}
+        </View>
+      </ScrollView>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'orange',
+    padding: 4,
+    paddingBottom: 0,
+  },
+  wrapper: {
+    padding: 10,
+    marginTop: 10,
+    backgroundColor: 'white',
+    borderColor: 'orange',
+    borderWidth: 1,
+    borderRadius: 10,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  searchIcon: {
+    padding: 10,
+    backgroundColor: 'white',
+    borderWidth: 0.5,
+    borderRadius: 50,
+    width: 37,
+  },
+  profileHeader: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  listProduct: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
+    paddingBottom: 100,
+  },
+});
 
 export default Home;

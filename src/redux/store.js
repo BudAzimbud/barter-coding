@@ -9,17 +9,19 @@ import {
   REGISTER,
   REHYDRATE,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {combineReducers} from 'redux';
+import products from './reducer/products/products';
 
 const reducers = combineReducers({
   users: persistReducer(
     {
       key: 'users',
-      storage,
+      storage: AsyncStorage,
     },
     userSlicer,
   ),
+  products: products,
 });
 
 export default configureStore({
