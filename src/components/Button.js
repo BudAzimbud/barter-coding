@@ -2,9 +2,15 @@ import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const Button = ({children, color = 'orange', colorText = 'white'}) => {
+const Button = ({
+  children,
+  color = 'orange',
+  colorText = 'white',
+  onPress = () => {},
+}) => {
   return (
     <TouchableOpacity
+      onPress={onPress}
       style={[
         styles.button,
         {backgroundColor: color, borderColor: colorText, borderWidth: 1},

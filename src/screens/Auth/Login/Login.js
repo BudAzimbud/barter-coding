@@ -1,16 +1,15 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
+import {View, Text, Image, TouchableOpacity, ScrollView} from 'react-native';
 import React from 'react';
-import Input from '../components/Input';
+import Input from '../../../components/Input';
 import CheckBox from '@react-native-community/checkbox';
-import Button from '../components/Button';
-const Login = () => {
+import Button from '../../../components/Button';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {styles} from './Style';
+const Login = ({navigation}) => {
+  const redirectToHome = () => {
+    navigation.navigate('Public');
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView
@@ -82,7 +81,7 @@ const Login = () => {
             },
           ]}>
           <View style={[styles.menus, {marginTop: -70, paddingHorizontal: 25}]}>
-            <Button>Login</Button>
+            <Button onPress={redirectToHome}>Login</Button>
             <Button color="white" colorText="red">
               Register
             </Button>
@@ -106,70 +105,5 @@ const Login = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'orange',
-    padding: 8,
-  },
-  wrapper: {
-    backgroundColor: 'white',
-    flex: 1,
-    borderRadius: 20,
-    borderColor: 'rgba(243, 217, 173, 0.86)',
-    borderWidth: 2,
-    borderBottomWidth: 0,
-    borderTopWidth: 0,
-    height: '100%',
-  },
-  shadow: {
-    backgroundColor: 'white',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 12,
-    },
-    shadowOpacity: 0.58,
-    shadowRadius: 16.0,
-    elevation: 24,
-  },
-  form: {
-    paddingHorizontal: 20,
-  },
-  center: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  heroImage: {
-    width: 100,
-    height: 100,
-  },
-  title: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    display: 'flex',
-    justifyContent: 'center',
-    lineHeight: 30,
-  },
-  titleImage: {
-    marginLeft: 10,
-    borderWidth: 1,
-    borderRadius: 10,
-    width: 100,
-    height: 100,
-  },
-  textLogin: {
-    color: '#FF591D',
-    fontSize: 21,
-    fontWeight: '400',
-  },
-  menus: {
-    marginTop: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-});
 
 export default Login;
