@@ -1,11 +1,22 @@
-import {View, Text, ScrollView, TextInput, StyleSheet} from 'react-native';
+import {View, Text, ScrollView, RefreshControl, StyleSheet} from 'react-native';
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {setUsers} from '../redux/reducer/user/userSlicer';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import Card from '../components/Card';
+const wait = timeout => {
+  return new Promise(resolve => setTimeout(resolve, timeout));
+};
+
 const Home = () => {
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
+
   const dispatch = useDispatch();
   const {products} = useSelector(state => state.products);
   const {user} = useSelector(state => state.users);
@@ -48,7 +59,11 @@ const Home = () => {
           </View>
         </View>
       </View>
-      <ScrollView style={[styles.wrapper]}>
+      <ScrollView
+        style={[styles.wrapper]}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }>
         <Text>See top list {'>'}</Text>
         <View style={styles.listProduct}>
           {products.map((data, idx) => (
