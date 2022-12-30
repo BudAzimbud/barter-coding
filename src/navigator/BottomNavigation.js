@@ -53,7 +53,7 @@ export default function BottomNavigation() {
               style={{
                 background: 'white',
                 borderColor: 'orange',
-                borderWidth: 10,
+                borderWidth: 5,
                 borderRadius: 50,
                 height: 60,
                 width: 60,

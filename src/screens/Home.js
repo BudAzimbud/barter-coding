@@ -1,11 +1,19 @@
-import {View, Text, TextInput} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import React from 'react';
 
 const Home = () => {
   return (
-    <View style={{backgroundColor: 'orange', flex: 1}}>
-      <Text>Home</Text>
-    </View>
+    <ScrollView
+      style={{
+        backgroundColor: 'orange',
+        flex: 1,
+        padding: 8,
+        paddingBottom: 0,
+      }}>
+      <View style={{backgroundColor: 'white'}}>
+        <Text>Home</Text>
+      </View>
+    </ScrollView>
   );
 };
 
