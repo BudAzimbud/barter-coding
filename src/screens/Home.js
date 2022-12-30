@@ -34,8 +34,15 @@ const Home = () => {
             <Text style={{color: 'orange'}}>{user.name}</Text>
           </View>
           <View style={styles.profileHeader}>
-            <MaterialCommunityIcons name="help" size={25} />
-            <Text>Help</Text>
+            <MaterialCommunityIcons
+              style={[
+                styles.searchIcon,
+                {marginTop: -20, borderColor: 'red', width: 42},
+              ]}
+              color="red"
+              name="help"
+              size={20}
+            />
           </View>
           <View style={styles.profileHeader}>
             <Feather style={styles.searchIcon} name="search" size={15} />
@@ -66,7 +73,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 10,
     backgroundColor: 'white',
-    borderColor: 'orange',
+    borderColor: 'yellow',
     borderWidth: 1,
     borderRadius: 10,
   },
