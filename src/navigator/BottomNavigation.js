@@ -53,20 +53,27 @@ export default function BottomNavigation() {
           tabBarIcon: ({color}) => (
             <View
               style={{
-                background: 'white',
                 borderColor: 'orange',
+                backgroundColor: 'white',
+                shadowColor: '#000',
+                shadowOffset: {
+                  width: 0,
+                  height: 12,
+                },
+                shadowOpacity: 0.58,
+                shadowRadius: 16.0,
+                elevation: 24,
                 borderWidth: 5,
                 borderRadius: 50,
                 zIndex: 999,
                 height: 60,
                 width: 60,
-                backgroundColor: 'white',
                 marginTop: -30,
                 alignItems: 'center',
                 flexDirection: 'row',
                 justifyContent: 'center',
               }}>
-              <MaterialCommunityIcons name="offer" color={color} size={30} />
+              <MaterialCommunityIcons name="offer" color={'orange'} size={30} />
             </View>
           ),
         }}
