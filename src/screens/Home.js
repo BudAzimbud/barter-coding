@@ -35,14 +35,12 @@ const Home = () => {
           </View>
           <View style={styles.profileHeader}>
             <MaterialCommunityIcons
-              style={[
-                styles.searchIcon,
-                {marginTop: -20, borderColor: 'red', width: 42},
-              ]}
+              style={[styles.searchIcon, {marginTop: -8, borderColor: 'red'}]}
               color="red"
               name="help"
-              size={20}
+              size={15}
             />
+            <Text>Help Center</Text>
           </View>
           <View style={styles.profileHeader}>
             <Feather style={styles.searchIcon} name="search" size={15} />

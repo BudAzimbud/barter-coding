@@ -7,7 +7,6 @@ import {
   Button,
 } from 'react-native';
 import React from 'react';
-import StarRating from 'react-native-star-rating-widget';
 const Card = ({data}) => {
   return (
     <View style={styles.container}>
@@ -36,7 +35,7 @@ const Card = ({data}) => {
               backgroundColor: data.available ? '#4D7EF9' : 'red',
             },
           ]}>
-          {data.available ? 'Available' : 'Out of stock'}
+          {data.available ? 'Available' : 'Dealad'}
         </Text>
         <View style={styles.footer}>
           <Text style={styles.barterText}>
@@ -100,11 +99,12 @@ const styles = StyleSheet.create({
     fontSize: 9,
     fontWeight: '600',
     position: 'absolute',
-    end: 60,
+    end: 65,
     top: 150,
     backgroundColor: 'white', //    <==== HERE
     borderRadius: 10,
     borderRadius: 20,
+    alignSelf: 'center',
     color: 'orange',
     shadowColor: '#000000',
     shadowOffset: {

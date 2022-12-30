@@ -2,6 +2,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {View} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Feather from 'react-native-vector-icons/Feather';
 
 import Home from '../screens/Home';
 const Tab = createBottomTabNavigator();
@@ -71,21 +72,17 @@ export default function BottomNavigation() {
         }}
       />
       <Tab.Screen
-        name="Profile"
+        name="Settings"
         component={Home}
         options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: 'Settings',
           tabBarLabelStyle: {
             fontSize: 12,
             fontWeight: 'bold',
           },
           tabBarIcon: ({color}) => (
             <View style={{}}>
-              <MaterialCommunityIcons
-                name="face-man-profile"
-                color={color}
-                size={30}
-              />
+              <Feather name="settings" color={color} size={30} />
             </View>
           ),
         }}
