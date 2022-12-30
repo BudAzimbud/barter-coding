@@ -14,7 +14,7 @@ const Login = () => {
   return (
     <View style={styles.container}>
       <ScrollView
-        style={[styles.shadow, {backgroundColor: 'orange', paddingBottom: 20}]}>
+        style={[styles.shadow, {backgroundColor: 'orange', paddinBottom: 100}]}>
         <View
           style={[
             styles.form,
@@ -78,18 +78,27 @@ const Login = () => {
               borderTopRightRadius: 100,
               paddingTop: 50,
               marginTop: -40,
+              marginBottom: 3,
             },
           ]}>
           <View style={[styles.menus, {marginTop: -70, paddingHorizontal: 25}]}>
             <Button>Login</Button>
-            <Button>Register</Button>
+            <Button color="white" colorText="red">
+              Register
+            </Button>
           </View>
           <View style={[styles.center, {marginTop: 10, paddingBottom: 10}]}>
             <Text>Or connect with</Text>
             <View>
-              <Button>Login with facebook</Button>
-              <Button>Login with Instagram</Button>
-              <Button>Login with Linkedin</Button>
+              <Button color="white" colorText="#747070">
+                Login with facebook
+              </Button>
+              <Button color="white" colorText="#747070">
+                Login with Instagram
+              </Button>
+              <Button color="white" colorText="#747070">
+                Login with Linkedin
+              </Button>
             </View>
           </View>
         </View>
