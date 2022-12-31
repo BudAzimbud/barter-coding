@@ -1,15 +1,17 @@
 import {View, Text, ScrollView, RefreshControl, StyleSheet} from 'react-native';
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {setUsers} from '../redux/reducer/user/userSlicer';
+import React, {useCallback} from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/Feather';
-import Card from '../components/Card';
+import Card from '../../components/Card';
+import {useIsFocused} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
 const wait = timeout => {
   return new Promise(resolve => setTimeout(resolve, timeout));
 };
 
-const Home = () => {
+const Home = ({navigation}) => {
+  const iseFocused = useIsFocused();
+
   const [refreshing, setRefreshing] = React.useState(false);
 
   const onRefresh = React.useCallback(() => {
@@ -17,20 +19,16 @@ const Home = () => {
     wait(2000).then(() => setRefreshing(false));
   }, []);
 
-  const dispatch = useDispatch();
-  const {products} = useSelector(state => state.products);
-  const {user} = useSelector(state => state.users);
-  useEffect(() => {
-    dispatch(
-      setUsers({
-        name: 'Azim Sucipta',
-      }),
-    );
+  const redirectToDetailsProduct = React.useCallback(product => {
+    navigation.navigate('ProductDetail', {product});
   }, []);
 
-  useEffect(() => {
-    console.log(products);
-  }, [dispatch]);
+  React.useEffect(() => {
+    onRefresh();
+  }, [iseFocused]);
+
+  const {products} = useSelector(state => state.products);
+  const {user} = useSelector(state => state.users);
 
   return (
     <View style={styles.container}>
@@ -38,24 +36,20 @@ const Home = () => {
         <View style={styles.header}>
           <View style={styles.profileHeader}>
             <MaterialCommunityIcons
-              color={'orange'}
               name="face-man-profile"
-              size={24}
-            />
-            <Text style={{color: 'orange'}}>{user.name}</Text>
-          </View>
-          <View style={styles.profileHeader}>
-            <MaterialCommunityIcons
-              style={[styles.searchIcon, {marginTop: -8, borderColor: 'red'}]}
-              color="red"
-              name="help"
               size={15}
+              style={styles.iconHeader}
             />
-            <Text>Help Center</Text>
+            <Text>{user.name}</Text>
+          </View>
+
+          <View style={styles.profileHeader}>
+            <Feather style={styles.iconHeader} name="search" size={15} />
+            <Text>Search barter</Text>
           </View>
           <View style={styles.profileHeader}>
-            <Feather style={styles.searchIcon} name="search" size={15} />
-            <Text>Search barter</Text>
+            <Feather style={[styles.iconHeader]} name="bell" size={15} />
+            <Text>Notifications</Text>
           </View>
         </View>
       </View>
@@ -67,7 +61,11 @@ const Home = () => {
         <Text>See top list {'>'}</Text>
         <View style={styles.listProduct}>
           {products.map((data, idx) => (
-            <Card data={data} key={idx} />
+            <Card
+              onPress={() => redirectToDetailsProduct(data)}
+              data={data}
+              key={idx}
+            />
           ))}
         </View>
       </ScrollView>
@@ -95,10 +93,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  searchIcon: {
+  iconHeader: {
     padding: 10,
     backgroundColor: 'white',
     borderWidth: 0.5,
+    borderColor: 'orange',
+    color: 'orange',
     borderRadius: 50,
     width: 37,
   },

@@ -7,7 +7,7 @@ import {
   Button,
 } from 'react-native';
 import React from 'react';
-const Card = ({data}) => {
+const Card = ({data, onPress = () => {}}) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.wrapperCard}>
@@ -42,7 +42,7 @@ const Card = ({data}) => {
             Request Barter: {data.requestBarter} People
           </Text>
         </View>
-        <Button title="Barter" />
+        <Button title="Barter" onPress={onPress} />
       </TouchableOpacity>
     </View>
   );
