@@ -30,7 +30,7 @@ function Navigation() {
                 width: 140,
                 justifyContent: 'space-around',
               }}>
-              <FontAwesomeIcon name="heart" color={'orange'} size={30} />
+              <FontAwesomeIcon name="wechat" color={'orange'} size={30} />
               <FontAwesomeIcon name="shopping-cart" color={'black'} size={30} />
             </View>
           ),
