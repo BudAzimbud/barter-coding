@@ -15,28 +15,24 @@ import styles from './style';
 import useNavigation from './hooks/useNavigation';
 import {getProduct} from '../../redux/reducer/products/products.action';
 getProduct;
-const wait = timeout => {
-  return new Promise(resolve => setTimeout(resolve, timeout));
-};
 
 const Home = ({navigation}) => {
-  const dispatch = useDispatch();
 
-  const [refreshing, setRefreshing] = React.useState(false);
+  const dispatch = useDispatch();
   const {products, loading} = useSelector(state => state.products);
 
-  const {redirectToDetailsProduct} = useNavigation(navigation);
-
   const iseFocused = useIsFocused();
-
-  const onRefresh = React.useCallback(() => {
-    dispatch(getProduct({limit: 20, page: 20}));
-  }, []);
 
   React.useEffect(() => {
     dispatch(getProduct({limit: 20, page: 20}));
     onRefresh();
   }, [iseFocused]);
+
+  const onRefresh = React.useCallback(() => {
+    dispatch(getProduct({limit: 20, page: 20}));
+  }, []);
+
+  const {redirectToDetailsProduct} = useNavigation(navigation);
 
   return (
     <View style={styles.container}>

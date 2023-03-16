@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
       paddingBottom: 0,
     },
     wrapper: {
-      padding: 4,
       marginTop: 10,
       backgroundColor: 'white',
       borderColor: 'yellow',
@@ -39,6 +38,8 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       flexWrap: 'wrap',
       paddingBottom: 100,
+      padding:10,
+      justifyContent: 'center',
     },
   });
   
