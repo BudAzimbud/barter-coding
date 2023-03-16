@@ -1,5 +1,4 @@
 import {configureStore} from '@reduxjs/toolkit';
-import userSlicer from './reducer/user/userSlicer';
 import {
   FLUSH,
   PAUSE,
@@ -12,18 +11,20 @@ import {
 } from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {combineReducers} from 'redux';
-import products from './reducer/products/products';
+import productsSlicer from './reducer/products/products';
+import userSlicer from './reducer/user/userSlicer';
 
 const reducers = combineReducers({
   users: userSlicer,
-  products: products,
+  products: productsSlicer,
 });
 
 const persistConfig = persistReducer(
   {
     key: 'root',
     storage: AsyncStorage,
-    blacklist: ['products'], //blacklisting a store attribute name, will not persist that store attribute.
+    blacklist: ['products'],//blacklisting a store attribute name, will not persist that store attribute.
+    whitelist: ['users'], 
   },
   reducers,
 );

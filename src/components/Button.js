@@ -4,9 +4,10 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const Button = ({
   children,
-  color = 'orange',
+  color = 'skyblue',
   colorText = 'white',
   onPress = () => {},
+  icon,
 }) => {
   return (
     <TouchableOpacity
@@ -15,6 +16,7 @@ const Button = ({
         styles.button,
         {backgroundColor: color, borderColor: colorText, borderWidth: 1},
       ]}>
+      {icon && <Text style={{color: colorText, paddingRight:5}}>{icon}</Text>}
       <Text style={[styles.text, {color: colorText}]}>{children}</Text>
     </TouchableOpacity>
   );
@@ -31,6 +33,10 @@ const styles = StyleSheet.create({
       height: 8,
     },
     padding: 10,
+    display: 'flex',
+    flexDirection: 'row',
+
+    gap: 20,
     paddingHorizontal: 50,
     marginTop: 20,
     shadowOpacity: 0.1,

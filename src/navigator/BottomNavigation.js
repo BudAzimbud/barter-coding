@@ -12,13 +12,13 @@ export default function BottomNavigation() {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
-        tabBarActiveTintColor: 'orange',
+        tabBarActiveTintColor: 'skyblue',
         tabBarInactiveTintColor: '#747070',
         headerShown: false,
         tabBarStyle: {
           position: 'absolute',
           borderTopWidth: 0,
-          bottom: 15,
+          bottom: 3,
           right: 10,
           left: 10,
           borderRadius: 50,
@@ -35,7 +35,7 @@ export default function BottomNavigation() {
           },
           tabBarIcon: ({color}) => (
             <View style={{}}>
-              <AntDesign name="like2" color={color} size={30} />
+              <AntDesign name="home" color={color} size={30} />
             </View>
           ),
         }}
@@ -53,7 +53,7 @@ export default function BottomNavigation() {
           tabBarIcon: ({color}) => (
             <View
               style={{
-                borderColor: 'orange',
+                borderColor: 'skyblue',
                 backgroundColor: 'white',
                 shadowColor: '#000',
                 shadowOffset: {
@@ -73,7 +73,7 @@ export default function BottomNavigation() {
                 flexDirection: 'row',
                 justifyContent: 'center',
               }}>
-              <MaterialCommunityIcons name="offer" color={'orange'} size={30} />
+              <MaterialCommunityIcons name="offer" color={color} size={30} />
             </View>
           ),
         }}

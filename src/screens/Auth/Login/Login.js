@@ -13,7 +13,10 @@ const Login = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ScrollView
-        style={[styles.shadow, {backgroundColor: 'orange', paddinBottom: 100}]}>
+        style={[
+          styles.shadow,
+          {backgroundColor: '#0386D0', paddinBottom: 100},
+        ]}>
         <View
           style={[
             styles.form,
@@ -42,16 +45,19 @@ const Login = ({navigation}) => {
               </Text>
               <Text style={{color: '#0386D0'}}>Term and Privacy policy</Text>
             </View>
-            <Image
-              style={[styles.titleImage, styles.shadow]}
-              source={{
-                uri: 'https://i.pinimg.com/originals/84/dd/92/84dd92604cba7d058dab8ce76323c0c7.jpg',
-              }}
-            />
           </View>
           <View>
             <Input placeholder={'Email Address'} />
-            <Input placeholder={'Password'} />
+            <Input
+              placeholder={'Password'}
+              icon={
+                <MaterialCommunityIcons
+                  name="eye"
+                  backgroundColor="#3b5998"
+                  size={20}
+                />
+              }
+            />
           </View>
           <View style={styles.menus}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -81,22 +87,48 @@ const Login = ({navigation}) => {
             },
           ]}>
           <View style={[styles.menus, {marginTop: -70, paddingHorizontal: 25}]}>
-            <Button onPress={redirectToHome}>Login</Button>
-            <Button color="white" colorText="red">
-              Register
+            <Button color="white" colorText="skyblue" onPress={redirectToHome}>
+              Sign In
             </Button>
+            <Button>Sign Up</Button>
           </View>
           <View style={[styles.center, {marginTop: 10, paddingBottom: 10}]}>
             <Text>Or connect with</Text>
             <View>
-              <Button color="white" colorText="#747070">
+              <Button
+                color="white"
+                colorText="#FF591D"
+                icon={
+                  <MaterialCommunityIcons
+                    name="google"
+                    backgroundColor="#3b5998"
+                    size={18}
+                  />
+                }>
+                Login with Google
+              </Button>
+              <Button
+                color="#2a9ee9"
+                colorText="white"
+                icon={
+                  <MaterialCommunityIcons
+                    name="facebook"
+                    backgroundColor="#3b5998"
+                    size={20}
+                  />
+                }>
                 Login with facebook
               </Button>
-              <Button color="white" colorText="#747070">
-                Login with Instagram
-              </Button>
-              <Button color="white" colorText="#747070">
-                Login with Linkedin
+              <Button color="black" colorText="white"
+              icon={
+                <MaterialCommunityIcons
+                  name="github"
+                  backgroundColor="#3b5998"
+                  size={20}
+                />
+              }
+              >
+                Login with Github
               </Button>
             </View>
           </View>

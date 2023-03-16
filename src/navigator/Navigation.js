@@ -2,7 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import Login from '../screens/Auth/Login/Login';
 import ButtonNavigation from './BottomNavigation';
-import ProductsDetail from '../screens/Home/ProductsDetail';
+import ProductsDetail from '../screens/Product/ProductsDetail';
 import {View} from 'react-native';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 

@@ -63,14 +63,14 @@ const ProductsDetail = ({route}) => {
             backgroundColor: 'white',
             padding: 10,
             borderRadius: 10,
-            borderColor: 'orange',
+            borderColor: 'red',
             borderWidth: 1,
           }}>
-          <FontAwesomeIcon name="heart" color={'orange'} size={30} />
+          <FontAwesomeIcon name="heart" color={'red'} size={30} />
         </TouchableOpacity>
         <TouchableOpacity
           style={{
-            backgroundColor: 'orange',
+            backgroundColor: '#2a9ee9',
             padding: 10,
             paddingVertical: 13,
             width: 300,

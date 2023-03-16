@@ -3,14 +3,14 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'orange',
+    backgroundColor: '#0386D0',
     padding: 8,
   },
   wrapper: {
     backgroundColor: 'white',
     flex: 1,
     borderRadius: 20,
-    borderColor: 'rgba(243, 217, 173, 0.86)',
+    borderColor: 'white',
     borderWidth: 2,
     borderBottomWidth: 0,
     borderTopWidth: 0,
@@ -40,9 +40,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     flexDirection: 'row',
-    alignItems: 'center',
     display: 'flex',
-    justifyContent: 'space-around',
     lineHeight: 30,
   },
   titleImage: {
