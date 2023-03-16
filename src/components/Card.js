@@ -14,11 +14,11 @@ const Card = ({data, onPress = () => {}}) => {
         <View style={styles.profile}>
           <Image
             source={{
-              uri: 'https://asset.kompas.com/crops/o1K29R-sCa6DQ30jB0qKQwPDGWo=/0x229:4415x3173/750x500/data/photo/2021/10/09/61616eaf1884b.jpg',
+              uri: data.users.image,
             }}
             style={styles.avatar}
           />
-          <Text style={{fontSize: 10}}>{data.users.name}</Text>
+          <Text style={{fontSize: 12}}>{data?.users?.name}</Text>
         </View>
         <Image
           source={{
@@ -53,10 +53,13 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     borderRadius: 50,
+    marginRight:4,
   },
   profile: {
     flexDirection: 'row',
     alignItems: 'center',
+    padding:2,
+    gap:10
   },
   container: {
     padding: 10,

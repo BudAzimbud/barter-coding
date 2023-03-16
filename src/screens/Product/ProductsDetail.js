@@ -36,10 +36,10 @@ const ProductsDetail = ({route}) => {
             </View>
           </View>
           <View style={{alignItems: 'center'}}>
-            <Avatar.Image source={{uri: product.image}} size={40} />
-            <Text>{product.users.name}</Text>
+            <Avatar.Image source={{uri: product.users.image}} size={40} />
+            <Text>{product?.users?.name}</Text>
             <StarRating
-                rating={product.users.rating}
+                rating={product?.users?.rating}
                 starSize={15}
                 starStyle={{marginStart: -4}}
                 onChange={() => {}}

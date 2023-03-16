@@ -1,21 +1,22 @@
 import {View, Text, ScrollView, RefreshControl, StyleSheet} from 'react-native';
-import React, {useCallback} from 'react';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Feather from 'react-native-vector-icons/Feather';
+import React from 'react';
 import Card from '../../components/Card';
 import {useIsFocused} from '@react-navigation/native';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import styles from './style';
 import useNavigation from './hooks/useNavigation';
-
+import { getProduct } from '../../redux/reducer/products/products.action';
+getProduct
 const wait = timeout => {
   return new Promise(resolve => setTimeout(resolve, timeout));
 };
 
 const Home = ({navigation}) => {
+
+  const dispatch = useDispatch()
+
   const [refreshing, setRefreshing] = React.useState(false);
   const {products} = useSelector(state => state.products);
-  const {user} = useSelector(state => state.users);
 
   const {redirectToDetailsProduct} = useNavigation(navigation);
 
@@ -28,6 +29,7 @@ const Home = ({navigation}) => {
 
 
   React.useEffect(() => {
+    dispatch(getProduct())
     onRefresh();
   }, [iseFocused]);
 

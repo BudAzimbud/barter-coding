@@ -23,7 +23,7 @@ const persistConfig = persistReducer(
   {
     key: 'root',
     storage: AsyncStorage,
-    blacklist: ['products'],//blacklisting a store attribute name, will not persist that store attribute.
+    blacklist: ['products'],
     whitelist: ['users'], 
   },
   reducers,
