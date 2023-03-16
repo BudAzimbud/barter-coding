@@ -10,7 +10,7 @@ export const getProduct = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log('error getting', error);
-      rejectedValue(error);
+      thunkAPI.rejectedValue(error);
     }
   },
 );
