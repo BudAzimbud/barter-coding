@@ -8,15 +8,16 @@ const Button = ({
   colorText = 'white',
   onPress = () => {},
   icon,
+  width,
 }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       style={[
         styles.button,
-        {backgroundColor: color, borderColor: colorText, borderWidth: 1},
+        {backgroundColor: color, borderColor: colorText, borderWidth: 1, width},
       ]}>
-      {icon && <Text style={{color: colorText, paddingRight:5}}>{icon}</Text>}
+      {icon && <Text style={{color: colorText, paddingRight: 5}}>{icon}</Text>}
       <Text style={[styles.text, {color: colorText}]}>{children}</Text>
     </TouchableOpacity>
   );
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: 'white', //    <==== HERE
     borderRadius: 24,
-    paddingHorizontal: 20,
+    paddingHorizontal: 40,
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,
@@ -37,13 +38,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
 
     gap: 20,
-    paddingHorizontal: 50,
     marginTop: 20,
     shadowOpacity: 0.1,
     shadowRadius: 24,
     elevation: 10,
-    shadowOpacity: 0.1,
-    shadowRadius: 24,
   },
   text: {
     color: 'white',

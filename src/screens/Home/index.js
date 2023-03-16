@@ -6,10 +6,11 @@ import {
   StyleSheet,
   FlatList,
   Alert,
+  SafeAreaView,
 } from 'react-native';
-import React from 'react';
+import React, {useCallback} from 'react';
 import Card from '../../components/Card';
-import {useIsFocused} from '@react-navigation/native';
+import {useFocusEffect} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import styles from './style';
 import useNavigation from './hooks/useNavigation';
@@ -17,32 +18,32 @@ import {getProduct} from '../../redux/reducer/products/products.action';
 getProduct;
 
 const Home = ({navigation}) => {
-
   const dispatch = useDispatch();
   const {products, loading} = useSelector(state => state.products);
 
-  const iseFocused = useIsFocused();
+  useFocusEffect(
+    useCallback(() => {
+      dispatch(getProduct({limit: 20, page: 20}));
+      onRefresh();
+      return () => {};
+    }, [dispatch, onRefresh]),
+  );
 
-  React.useEffect(() => {
+  const onRefresh = useCallback(() => {
     dispatch(getProduct({limit: 20, page: 20}));
-    onRefresh();
-  }, [iseFocused]);
-
-  const onRefresh = React.useCallback(() => {
-    dispatch(getProduct({limit: 20, page: 20}));
-  }, []);
+  }, [dispatch]);
 
   const {redirectToDetailsProduct} = useNavigation(navigation);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={[styles.wrapper]}>
         <Text>See top list {'>'}</Text>
         <FlatList
           numColumns={2}
           data={products}
           keyExtractor={item => item.id}
-          contentContainerStyle={styles.listProduct}
+          horizontal={false}
           refreshControl={
             <RefreshControl refreshing={loading} onRefresh={onRefresh} />
           }
@@ -59,7 +60,7 @@ const Home = ({navigation}) => {
           )}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

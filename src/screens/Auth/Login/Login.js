@@ -1,21 +1,43 @@
-import {View, Text, Image, TouchableOpacity, ScrollView} from 'react-native';
-import React from 'react';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+  SafeAreaView,
+  Dimensions,
+} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import Input from '../../../components/Input';
 import CheckBox from '@react-native-community/checkbox';
 import Button from '../../../components/Button';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {styles} from './Style';
+
 const Login = ({navigation}) => {
   const redirectToHome = () => {
     navigation.navigate('Public');
   };
+  useEffect(() => {
+    Dimensions.addEventListener('change', e => {
+      const {height} = e.window;
+      setfirst(height);
+    });
+  }, []);
+
+  const [first, setfirst] = useState();
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <ScrollView
+        bounces={false}
         style={[
           styles.shadow,
-          {backgroundColor: '#0386D0', paddinBottom: 100},
+          {
+            backgroundColor: '#0386D0',
+            paddingHorizontal: 6,
+            marginTop: 15,
+          },
         ]}>
         <View
           style={[
@@ -60,12 +82,17 @@ const Login = ({navigation}) => {
             />
           </View>
           <View style={styles.menus}>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+              }}>
               <CheckBox
                 tintColors={{true: 'blue', false: 'black'}}
+                animationDuration={0.5}
                 value={true}
               />
-              <Text>Remember Password</Text>
+              <Text style={{marginLeft: 5}}>Remember Password</Text>
             </View>
             <TouchableOpacity>
               <Text style={{fontWeight: '400', fontSize: 14, color: '#4D7EF9'}}>
@@ -86,7 +113,11 @@ const Login = ({navigation}) => {
               paddingBottom: 50,
             },
           ]}>
-          <View style={[styles.menus, {marginTop: -70, paddingHorizontal: 25}]}>
+          <View
+            style={[
+              styles.menus,
+              {marginTop: -85, paddingHorizontal: 25, height: 100},
+            ]}>
             <Button color="white" colorText="skyblue" onPress={redirectToHome}>
               Sign In
             </Button>
@@ -119,22 +150,23 @@ const Login = ({navigation}) => {
                 }>
                 Login with facebook
               </Button>
-              <Button color="black" colorText="white"
-              icon={
-                <MaterialCommunityIcons
-                  name="github"
-                  backgroundColor="#3b5998"
-                  size={20}
-                />
-              }
-              >
+              <Button
+                color="black"
+                colorText="white"
+                icon={
+                  <MaterialCommunityIcons
+                    name="github"
+                    backgroundColor="#3b5998"
+                    size={20}
+                  />
+                }>
                 Login with Github
               </Button>
             </View>
           </View>
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

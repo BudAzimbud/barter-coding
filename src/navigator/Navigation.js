@@ -3,7 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Login from '../screens/Auth/Login/Login';
 import ButtonNavigation from './BottomNavigation';
 import ProductsDetail from '../screens/Product/ProductsDetail';
-import {View} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 const Stack = createStackNavigator();
@@ -23,13 +23,7 @@ function Navigation() {
           title: '',
           headerShown: true,
           headerRight: () => (
-            <View
-              style={{
-                paddingHorizontal: 10,
-                flexDirection: 'row',
-                width: 140,
-                justifyContent: 'space-around',
-              }}>
+            <View style={Style.container}>
               <FontAwesomeIcon name="wechat" color={'orange'} size={30} />
               <FontAwesomeIcon name="shopping-cart" color={'black'} size={30} />
             </View>
@@ -40,5 +34,14 @@ function Navigation() {
     </Stack.Navigator>
   );
 }
+
+const Style = StyleSheet.create({
+  container: {
+    paddingHorizontal: 10,
+    flexDirection: 'row',
+    width: 140,
+    justifyContent: 'space-around',
+  },
+});
 
 export default Navigation;
