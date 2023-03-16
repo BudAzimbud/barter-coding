@@ -62,8 +62,9 @@ const styles = StyleSheet.create({
     gap:10
   },
   container: {
-    padding: 10,
-    width: '50%',
+    padding: 7,
+    paddingVertical:10,
+    width: 195,
   },
   wrapperCard: {
     padding: 10,

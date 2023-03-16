@@ -4,6 +4,7 @@ import {api} from '../../../helper/http';
 export const getProduct = createAsyncThunk(
   'getproducts',
   async (arg, thunkAPI) => {
+    console.log(arg);
     try {
       const response = await api.get('products');
       return response.data;

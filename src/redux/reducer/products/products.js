@@ -5,6 +5,7 @@ export const userSlice = createSlice({
   name: 'counter',
   initialState: {
     products: [],
+    loading: false
   },
   reducers: {
     setUsers: (state, actions) => {
@@ -14,7 +15,12 @@ export const userSlice = createSlice({
   extraReducers: {
     [getProduct.fulfilled]: (state, action) => {
       state.products = action.payload
+      state.loading = false;
+
     },
+    [getProduct.pending]: (state, action) => {
+      state.loading = true;
+    }
   },
 });
 

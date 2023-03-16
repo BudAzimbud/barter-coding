@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
       paddingBottom: 0,
     },
     wrapper: {
-      padding: 10,
+      padding: 4,
       marginTop: 10,
       backgroundColor: 'white',
       borderColor: 'yellow',
@@ -36,10 +36,8 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     listProduct: {
-      flex: 1,
       flexDirection: 'row',
       flexWrap: 'wrap',
-      alignItems: 'flex-start',
       paddingBottom: 100,
     },
   });

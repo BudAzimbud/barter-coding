@@ -1,57 +1,68 @@
-import {View, Text, ScrollView, RefreshControl, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  RefreshControl,
+  StyleSheet,
+  FlatList,
+  Alert,
+} from 'react-native';
 import React from 'react';
 import Card from '../../components/Card';
 import {useIsFocused} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import styles from './style';
 import useNavigation from './hooks/useNavigation';
-import { getProduct } from '../../redux/reducer/products/products.action';
-getProduct
+import {getProduct} from '../../redux/reducer/products/products.action';
+getProduct;
 const wait = timeout => {
   return new Promise(resolve => setTimeout(resolve, timeout));
 };
 
 const Home = ({navigation}) => {
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [refreshing, setRefreshing] = React.useState(false);
-  const {products} = useSelector(state => state.products);
+  const {products, loading} = useSelector(state => state.products);
 
   const {redirectToDetailsProduct} = useNavigation(navigation);
 
   const iseFocused = useIsFocused();
 
   const onRefresh = React.useCallback(() => {
-    setRefreshing(true);
-    wait(2000).then(() => setRefreshing(false));
+    dispatch(getProduct({limit: 20, page: 20}));
   }, []);
 
-
   React.useEffect(() => {
-    dispatch(getProduct())
+    dispatch(getProduct({limit: 20, page: 20}));
     onRefresh();
   }, [iseFocused]);
 
   return (
     <View style={styles.container}>
-      
-      <ScrollView
-        style={[styles.wrapper]}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }>
+      <View style={[styles.wrapper]}>
         <Text>See top list {'>'}</Text>
-        <View style={styles.listProduct}>
-          {products.map((data, idx) => (
+        <FlatList
+          numColumns={2}
+          data={products}
+          keyExtractor={item => item.id}
+          contentContainerStyle={styles.listProduct}
+          refreshControl={
+            <RefreshControl refreshing={loading} onRefresh={onRefresh} />
+          }
+          onEndReached={() => {
+            dispatch(getProduct({limit: 20, page: 20}));
+          }}
+          onEndReachedThreshold={0.01}
+          renderItem={({item}) => (
             <Card
-              onPress={() => redirectToDetailsProduct(data)}
-              data={data}
-              key={idx}
+              onPress={() => redirectToDetailsProduct(item)}
+              data={item}
+              numColumns={2}
             />
-          ))}
-        </View>
-      </ScrollView>
+          )}
+        />
+      </View>
     </View>
   );
 };
