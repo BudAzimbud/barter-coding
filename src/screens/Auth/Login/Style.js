@@ -61,4 +61,19 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
+  triangleDown:{
+    width: 0,
+    height: 0,
+    backgroundColor: "transparent",
+    borderStyle: "solid",
+    borderLeftWidth: 400,
+    borderRightWidth: 400,
+    borderBottomWidth: 120,
+    borderLeftColor: "transparent",
+    borderRightColor: "transparent",
+    borderBottomColor: "orange",
+    transform: [{ rotate: "180deg" }],
+    position:'absolute',
+    top:0
+  }
 });

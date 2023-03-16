@@ -52,6 +52,7 @@ const Login = ({navigation}) => {
             },
           ]}>
           <View style={styles.center}>
+            <View style={styles.triangleDown}></View>
             <Image
               source={{
                 uri: 'https://img.freepik.com/premium-vector/handshaking-businessmen-after-success-deal-vector-businesspeople-handshaking-together-successful-signed-agreement-characters-business-partnership-cooperation-flat-cartoon-illustration_87720-5063.jpg',
