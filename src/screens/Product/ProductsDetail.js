@@ -28,21 +28,22 @@ const ProductsDetail = ({route}) => {
           <View>
             <Text style={styles.title}>{product.name}</Text>
             <View>
-              <StarRating
-                rating={product.users.rating}
-                starSize={25}
-                starStyle={{marginStart: -4}}
-                onChange={() => {}}
-              />
-              <Text style={{fontSize: 12}}>
+            
+              <Text style={{fontSize: 12,marginTop:5}}>
                 {'('}Request Barter : {product.requestBarter}
                 {')'}
               </Text>
             </View>
           </View>
-          <View style={{alignItems: 'center', padding: 10}}>
+          <View style={{alignItems: 'center'}}>
             <Avatar.Image source={{uri: product.image}} size={40} />
             <Text>{product.users.name}</Text>
+            <StarRating
+                rating={product.users.rating}
+                starSize={15}
+                starStyle={{marginStart: -4}}
+                onChange={() => {}}
+              />
           </View>
         </View>
 
