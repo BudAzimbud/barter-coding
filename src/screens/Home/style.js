@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#2a9ee9',
-    padding: 4,
     paddingBottom: 0,
   },
   wrapper: {
@@ -32,6 +31,37 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  banner:{
+    height:200,
+    width:'100%',
+    backgroundColor:'red',
+    borderBottomRightRadius:10,
+    borderBottomLeftRadius:10,
+  },
+  bannerMenu: {
+    height:56,
+    width:'80%',
+    backgroundColor:'white',
+    bottom:0,
+    paddingHorizontal:20,
+    marginTop:-40,
+    alignItems:'center',
+    borderRadius:20,
+    flexDirection:'row',
+    flexWrap:'wrap',
+    alignContent:'center'
+  },
+  shadow: {
+    backgroundColor: 'white',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16.0,
+    elevation: 24,
   },
 });
 

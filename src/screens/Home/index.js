@@ -7,6 +7,7 @@ import {
   FlatList,
   Alert,
   SafeAreaView,
+  Image,
 } from 'react-native';
 import React, {useCallback} from 'react';
 import Card from '../../components/Card';
@@ -36,31 +37,48 @@ const Home = ({navigation}) => {
   const {redirectToDetailsProduct} = useNavigation(navigation);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={[styles.wrapper]}>
-        <Text>See top list {'>'}</Text>
-        <FlatList
-          numColumns={2}
-          data={products}
-          keyExtractor={item => item.id}
-          horizontal={false}
-          refreshControl={
-            <RefreshControl refreshing={loading} onRefresh={onRefresh} />
-          }
-          onEndReached={() => {
-            dispatch(getProduct({limit: 20, page: 20}));
-          }}
-          onEndReachedThreshold={0.01}
-          renderItem={({item}) => (
-            <Card
-              onPress={() => redirectToDetailsProduct(item)}
-              data={item}
-              numColumns={2}
-            />
-          )}
-        />
-      </View>
-    </SafeAreaView>
+    <ScrollView>
+      <SafeAreaView style={styles.container}>
+        <View>
+          <Image
+            source={{
+              uri: 'https://i.pinimg.com/originals/34/83/79/3483794198b80fc3746a76760cde6966.jpg',
+            }}
+            style={styles.banner}
+          />
+          <View style={{display: 'flex', alignItems: 'center'}}>
+            <View style={[styles.bannerMenu,styles.shadow]}>
+              <Text style={{flex:1}}>Barang Saya</Text>
+              <Text style={{flex:1}}>Transaksi Saya</Text>
+            </View>
+          </View>
+        </View>
+
+        <View style={[styles.wrapper]}>
+          <Text>See top list {'>'}</Text>
+          <FlatList
+            numColumns={2}
+            data={products}
+            keyExtractor={item => item.id}
+            horizontal={false}
+            refreshControl={
+              <RefreshControl refreshing={loading} onRefresh={onRefresh} />
+            }
+            onEndReached={() => {
+              dispatch(getProduct({limit: 20, page: 20}));
+            }}
+            onEndReachedThreshold={0.01}
+            renderItem={({item}) => (
+              <Card
+                onPress={() => redirectToDetailsProduct(item)}
+                data={item}
+                numColumns={2}
+              />
+            )}
+          />
+        </View>
+      </SafeAreaView>
+    </ScrollView>
   );
 };
 
