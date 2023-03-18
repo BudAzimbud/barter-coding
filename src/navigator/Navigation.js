@@ -1,10 +1,11 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import Login from '../screens/Auth/Login/Login';
+import Login from '../screens/Auth/Login';
 import ButtonNavigation from './BottomNavigation';
 import ProductsDetail from '../screens/Product/ProductsDetail';
 import {View, StyleSheet} from 'react-native';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import Register from '../screens/Auth/Register';
 
 const Stack = createStackNavigator();
 function Navigation() {
@@ -16,6 +17,7 @@ function Navigation() {
         headerShown: false,
       }}>
       <Stack.Screen name={'Login'} component={Login} />
+      <Stack.Screen name={'Register'} component={Register} />
       <Stack.Screen name="Public" component={ButtonNavigation} />
       <Stack.Screen
         name="ProductDetail"

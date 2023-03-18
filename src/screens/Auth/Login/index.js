@@ -12,7 +12,7 @@ import Input from '../../../components/Input';
 import CheckBox from '@react-native-community/checkbox';
 import Button from '../../../components/Button';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {styles} from './Style';
+import {styles} from './style';
 
 const Login = ({navigation}) => {
   const redirectToHome = () => {
@@ -35,8 +35,7 @@ const Login = ({navigation}) => {
           styles.shadow,
           {
             backgroundColor: '#0386D0',
-            paddingHorizontal: 6,
-            marginTop: 15,
+            marginTop: 20,
           },
         ]}>
         <View
@@ -48,11 +47,9 @@ const Login = ({navigation}) => {
               borderBottomLeftRadius: 100,
               borderBottomRightRadius: 100,
               paddingBottom: 70,
-              marginTop: 5,
             },
           ]}>
-          <View style={styles.center}>
-            <View style={styles.triangleDown}></View>
+          <View style={[styles.center]}>
             <Image
               source={{
                 uri: 'https://img.freepik.com/premium-vector/handshaking-businessmen-after-success-deal-vector-businesspeople-handshaking-together-successful-signed-agreement-characters-business-partnership-cooperation-flat-cartoon-illustration_87720-5063.jpg',

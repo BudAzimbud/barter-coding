@@ -3,27 +3,23 @@ import {
   Text,
   ScrollView,
   RefreshControl,
-  StyleSheet,
   FlatList,
-  Alert,
   SafeAreaView,
   Image,
-  StatusBar,
 } from 'react-native';
 import React, {useCallback} from 'react';
 import Card from '../../components/Card';
 import {useFocusEffect} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import styles from './style';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import useNavigation from './hooks/useNavigation';
 import {getProduct} from '../../redux/reducer/products/products.action';
-getProduct;
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Feather from 'react-native-vector-icons/Feather';
 
 const Home = ({navigation}) => {
   const dispatch = useDispatch();
   const {products, loading} = useSelector(state => state.products);
-  const insets = useSafeAreaInsets();
 
   useFocusEffect(
     useCallback(() => {
@@ -51,8 +47,18 @@ const Home = ({navigation}) => {
           />
           <View style={{display: 'flex', alignItems: 'center'}}>
             <View style={[styles.bannerMenu, styles.shadow]}>
-              <Text style={{flex: 1}}>Barang Saya</Text>
-              <Text style={{flex: 1}}>Transaksi Saya</Text>
+              <View style={{flex: 1, alignItems: 'center'}}>
+                <Feather name="gift" color="red" size={30} />
+                <Text style={{textAlign: 'center'}}>Gift</Text>
+              </View>
+              <View style={{flex: 1, alignItems: 'center', backgroundColor:'white',padding:2,borderRadius:10}}>
+                <Feather name="dollar-sign" color="green" size={40} />
+                <Text style={{textAlign: 'center'}}>Transaction</Text>
+              </View>
+              <View style={{flex: 1, alignItems: 'center'}}>
+                  <Feather name="list" color="blue" size={30} />
+                  <Text style={{textAlign: 'center'}}>Post</Text>
+                </View>
             </View>
           </View>
         </View>
@@ -64,7 +70,7 @@ const Home = ({navigation}) => {
             data={products}
             keyExtractor={item => item.id}
             horizontal={false}
-            style={{paddingBottom:50}}
+            style={{paddingBottom: 50}}
             refreshControl={
               <RefreshControl refreshing={loading} onRefresh={onRefresh} />
             }

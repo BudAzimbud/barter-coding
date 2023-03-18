@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     paddingBottom: 0,
   },
   wrapper: {
-    marginTop: 10,
+    marginTop: 20,
     backgroundColor: 'white',
     borderColor: 'yellow',
     borderWidth: 1,
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     borderRadius:20,
     flexDirection:'row',
     flexWrap:'wrap',
+    justifyContent:'space-between',
     alignContent:'center'
   },
   shadow: {

@@ -1,11 +1,21 @@
-import {View, Text, Image, StyleSheet, Button} from 'react-native';
-import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
+import React, {useRef, useMemo, useCallback} from 'react';
 import {Avatar} from 'react-native-paper';
 import StarRating from 'react-native-star-rating-widget';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import BottomSheet from '@gorhom/bottom-sheet';
+import {useState} from 'react';
 const ProductsDetail = ({route}) => {
   const {product} = route.params;
+  const [modalBarter, setModalBarter] = useState(false);
+  const bottomSheetRef = useRef();
+  const snapPoints = useMemo(() => ['100%', '100%'], []);
+  const handleSheetChanges = useCallback(index => {
+    if(index === -1){
+      setModalBarter(false)
+    }
+  }, []);
   return (
     <View style={styles.container}>
       <View style={styles.center}>
@@ -28,8 +38,7 @@ const ProductsDetail = ({route}) => {
           <View>
             <Text style={styles.title}>{product.name}</Text>
             <View>
-            
-              <Text style={{fontSize: 12,marginTop:5}}>
+              <Text style={{fontSize: 12, marginTop: 5}}>
                 {'('}Request Barter : {product.requestBarter}
                 {')'}
               </Text>
@@ -39,11 +48,11 @@ const ProductsDetail = ({route}) => {
             <Avatar.Image source={{uri: product.users.image}} size={40} />
             <Text>{product?.users?.name}</Text>
             <StarRating
-                rating={product?.users?.rating}
-                starSize={15}
-                starStyle={{marginStart: -4}}
-                onChange={() => {}}
-              />
+              rating={product?.users?.rating}
+              starSize={15}
+              starStyle={{marginStart: -4}}
+              onChange={() => {}}
+            />
           </View>
         </View>
 
@@ -70,6 +79,9 @@ const ProductsDetail = ({route}) => {
           <FontAwesomeIcon name="heart" color={'red'} size={30} />
         </TouchableOpacity>
         <TouchableOpacity
+        onPress={()=>{
+          setModalBarter(!modalBarter);
+        }}
           style={{
             backgroundColor: '#2a9ee9',
             padding: 10,
@@ -77,11 +89,19 @@ const ProductsDetail = ({route}) => {
             width: 300,
             borderRadius: 10,
           }}>
-          <Text style={{color: 'white', fontSize: 20, textAlign: 'center'}}>
+          <Text style={{color: 'white', fontSize: 20, textAlign: 'center'}} >
             Barter
           </Text>
         </TouchableOpacity>
       </View>
+      {modalBarter && (
+        <BottomSheet
+          ref={bottomSheetRef}
+          enablePanDownToClose={true}
+          index={1}
+          snapPoints={snapPoints}
+          onChange={handleSheetChanges}></BottomSheet>
+      )}
     </View>
   );
 };
