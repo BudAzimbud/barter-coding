@@ -65,7 +65,7 @@ const Profile = ({navigation}) => {
         {menus.map(
           menu => {
             return (
-              <TouchableOpacity key={menu.navigation} onPress={()=>navigation.navigate(menu.navigation)} key={menu}>
+              <TouchableOpacity key={menu.navigation} onPress={()=>navigation.navigate(menu.navigation)}>
                 <Text style={styles.textMenu}>{menu.label}</Text>
               </TouchableOpacity>
             );

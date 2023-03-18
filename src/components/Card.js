@@ -48,7 +48,6 @@ const Card = ({data, onPress = () => {}}) => {
           style={{
             backgroundColor: '#2a9ee9',
             padding: 10,
-            paddingVertical: 13,
             borderRadius: 10,
           }}>
           <Text style={{color: 'white', textAlign: 'center'}}>Barter</Text>
