@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Input from '../../../components/Input';
-import CheckBox from '@react-native-community/checkbox';
 import Button from '../../../components/Button';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {styles} from './style';
@@ -85,7 +84,6 @@ const Login = ({navigation}) => {
                 flexDirection: 'row',
                 alignItems: 'center',
               }}>
-            
             </View>
             <TouchableOpacity>
               <Text style={{fontWeight: '400', fontSize: 14, color: '#4D7EF9'}}>

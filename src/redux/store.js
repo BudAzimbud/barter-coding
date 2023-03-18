@@ -13,17 +13,18 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {combineReducers} from 'redux';
 import productsSlicer from './reducer/products/products';
 import userSlicer from './reducer/user/userSlicer';
-
+import profileSlice from './reducer/profile/profile';
 const reducers = combineReducers({
   users: userSlicer,
   products: productsSlicer,
+  profile: profileSlice
 });
 
 const persistConfig = persistReducer(
   {
     key: 'root',
     storage: AsyncStorage,
-    whitelist: ['users'], 
+    whitelist: ['users','profile'], 
   },
   reducers,
 );

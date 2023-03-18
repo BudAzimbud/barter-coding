@@ -6,26 +6,19 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import React, {useCallback} from 'react';
-import {useFocusEffect} from '@react-navigation/native';
-import {useDispatch} from 'react-redux';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import styles from './style';
-import {getProduct} from '../../redux/reducer/products/products.action';
+import {getProfile} from '../../redux/reducer/profile/profile.action';
 
 const Profile = ({navigation}) => {
   const dispatch = useDispatch();
-
-  useFocusEffect(
-    useCallback(() => {
-      dispatch(getProduct({limit: 20, page: 20}));
-      onRefresh();
-      return () => {};
-    }, [dispatch, onRefresh]),
-  );
-
-  const onRefresh = useCallback(() => {
-    dispatch(getProduct({limit: 20, page: 20}));
-  }, [dispatch]);
+  const profileResponse = useSelector(state => state.profile.profileResponse[0]);
+  console.log('iki profile', profileResponse)
+  useEffect(() => {
+    dispatch(getProfile());
+    return () => {};
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -33,14 +26,14 @@ const Profile = ({navigation}) => {
         <TouchableOpacity>
           <Image
             source={{
-              uri: 'https://i.pinimg.com/originals/34/83/79/3483794198b80fc3746a76760cde6966.jpg',
+              uri: profileResponse?.image,
             }}
             style={styles.imageProfile}
           />
         </TouchableOpacity>
 
-        <Text style={styles.name}>Azim Ganteng</Text>
-        <Text>Member Pelit</Text>
+        <Text style={styles.name}>{profileResponse?.name}</Text>
+        <Text>{profileResponse?.member}</Text>
       </View>
       <View style={[styles.containerMenu, styles.shadow]}>
         {['Information', 'Devices Access', 'Help', 'Security', 'Exit'].map(

@@ -18,8 +18,8 @@ import styles from './style';
 import useNavigation from './hooks/useNavigation';
 import {getProduct} from '../../redux/reducer/products/products.action';
 import Feather from 'react-native-vector-icons/Feather';
-import Input from '../../components/Input';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+
 const Home = ({navigation}) => {
   const dispatch = useDispatch();
   const {products, loading} = useSelector(state => state.products);
@@ -60,8 +60,12 @@ const Home = ({navigation}) => {
             <View style={{display: 'flex', alignItems: 'center'}}>
               <View style={[styles.bannerMenu, styles.shadow]}>
                 <View style={{flex: 1, alignItems: 'center'}}>
-                  <Feather name="gift" color="red" size={30} />
+                  <Feather name="gift" color="green" size={30} />
                   <Text style={{textAlign: 'center'}}>Gift</Text>
+                </View>
+                <View style={{flex: 1, alignItems: 'center'}}>
+                <FontAwesomeIcon name="heart" color={'red'} size={30} />
+                  <Text style={{textAlign: 'center'}}>Favourit</Text>
                 </View>
               
                 <View style={{flex: 1, alignItems: 'center'}}>
