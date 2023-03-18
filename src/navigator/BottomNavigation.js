@@ -5,6 +5,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 
 import Home from '../screens/Home';
+import Profile from '../screens/Profile';
 const Tab = createBottomTabNavigator();
 
 export default function BottomNavigation() {
@@ -80,7 +81,7 @@ export default function BottomNavigation() {
       />
       <Tab.Screen
         name="Settings"
-        component={Home}
+        component={Profile}
         options={{
           tabBarLabel: 'Settings',
           tabBarLabelStyle: {
