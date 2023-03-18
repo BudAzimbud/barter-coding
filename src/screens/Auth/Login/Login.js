@@ -117,7 +117,7 @@ const Login = ({navigation}) => {
           <View
             style={[
               styles.menus,
-              {marginTop: -85, paddingHorizontal: 25, height: 100},
+              {marginTop: -85, paddingHorizontal: 25, height: 140},
             ]}>
             <Button color="white" colorText="skyblue" onPress={redirectToHome}>
               Sign In

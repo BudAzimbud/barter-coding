@@ -10,7 +10,7 @@ import React from 'react';
 const Card = ({data, onPress = () => {}}) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.wrapperCard}>
+      <View style={styles.wrapperCard}>
         <View style={styles.profile}>
           <Image
             source={{
@@ -43,7 +43,7 @@ const Card = ({data, onPress = () => {}}) => {
           </Text>
         </View>
         <Button title="Barter" onPress={onPress} />
-      </TouchableOpacity>
+      </View>
     </View>
   );
 };

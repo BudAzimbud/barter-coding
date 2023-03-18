@@ -61,13 +61,10 @@ const Home = ({navigation}) => {
             data={products}
             keyExtractor={item => item.id}
             horizontal={false}
+            style={{paddingBottom:50}}
             refreshControl={
               <RefreshControl refreshing={loading} onRefresh={onRefresh} />
             }
-            onEndReached={() => {
-              dispatch(getProduct({limit: 20, page: 20}));
-            }}
-            onEndReachedThreshold={0.01}
             renderItem={({item}) => (
               <Card
                 onPress={() => redirectToDetailsProduct(item)}
