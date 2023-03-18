@@ -6,6 +6,7 @@ import Feather from 'react-native-vector-icons/Feather';
 
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
+import Post from '../screens/Post';
 const Tab = createBottomTabNavigator();
 
 export default function BottomNavigation() {
@@ -43,7 +44,7 @@ export default function BottomNavigation() {
       />
       <Tab.Screen
         name="Create"
-        component={Home}
+        component={Post}
         options={{
           tabBarLabel: 'Post',
           tabBarLabelStyle: {
