@@ -48,7 +48,7 @@ const ProductsDetail = ({route}) => {
         </View>
 
         <Text style={[styles.title, {marginTop: 30}]}>Description</Text>
-        <Text style={styles.description}>{product.description}</Text>
+        <Text style={styles.description}>{product.descripion}</Text>
       </View>
       <View
         style={{
