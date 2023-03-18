@@ -11,10 +11,36 @@ import {useDispatch, useSelector} from 'react-redux';
 import styles from './style';
 import {getProfile} from '../../redux/reducer/profile/profile.action';
 
+
+const menus = [
+  {
+    label: 'Information',
+    navigation: 'Information',
+  },
+  {
+    label: 'Devices Access',
+    navigation: 'Android',
+  },
+  {
+    label: 'Help',
+    navigation: 'Help',
+  },
+  {
+    label: 'Security',
+    navigation: 'Security',
+  },
+  {
+    label: 'Exit',
+    navigation: 'Login',
+  },
+];
+
 const Profile = ({navigation}) => {
   const dispatch = useDispatch();
-  const profileResponse = useSelector(state => state.profile.profileResponse[0]);
-  console.log('iki profile', profileResponse)
+  const profileResponse = useSelector(
+    state => state.profile.profileResponse[0],
+  );
+  console.log('iki profile', profileResponse);
   useEffect(() => {
     dispatch(getProfile());
     return () => {};
@@ -36,11 +62,11 @@ const Profile = ({navigation}) => {
         <Text>{profileResponse?.member}</Text>
       </View>
       <View style={[styles.containerMenu, styles.shadow]}>
-        {['Information', 'Devices Access', 'Help', 'Security', 'Exit'].map(
+        {menus.map(
           menu => {
             return (
-              <TouchableOpacity key={menu}>
-                <Text style={styles.textMenu}>{menu}</Text>
+              <TouchableOpacity key={menu.navigation} onPress={()=>navigation.navigate(menu.navigation)} key={menu}>
+                <Text style={styles.textMenu}>{menu.label}</Text>
               </TouchableOpacity>
             );
           },
