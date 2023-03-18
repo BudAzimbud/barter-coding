@@ -23,7 +23,6 @@ const persistConfig = persistReducer(
   {
     key: 'root',
     storage: AsyncStorage,
-    blacklist: ['products'],
     whitelist: ['users'], 
   },
   reducers,
