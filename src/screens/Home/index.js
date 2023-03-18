@@ -73,7 +73,6 @@ const Home = ({navigation}) => {
           </View>
 
           <View style={[styles.wrapper]}>
-            <Text>See top list {'>'}</Text>
             <FlatList
               numColumns={2}
               data={products}
