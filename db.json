@@ -83,6 +83,7 @@
         "requestBarter": 3,
         "image": "https://i.pinimg.com/originals/34/83/79/3483794198b80fc3746a76760cde6966.jpg",
         "available": true,
+        "request":[],
         "tags": ["Keren", "Waw", "Wadidaw"],
         "users": {
           "email": "budazimbud@gmail.com",

@@ -4,7 +4,7 @@ import {StyleSheet, TextInput, View, Text} from 'react-native';
 function Input({placeholder, onChangeText = text => {}, icon}) {
   return (
     <View style={styles.wrapperInput}>
-      <TextInput placeholder={placeholder} onChangeText={onChangeText} />
+      <TextInput style={{flex:1}} placeholder={placeholder} onChangeText={onChangeText} />
       <View>{icon}</View>
     </View>
   );
