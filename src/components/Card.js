@@ -44,6 +44,7 @@ const Card = ({data, onPress = () => {}}) => {
           </Text>
         </View>
         <TouchableOpacity
+          onPress={onPress}
           style={{
             backgroundColor: '#2a9ee9',
             padding: 10,
