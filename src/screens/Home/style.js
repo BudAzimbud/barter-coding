@@ -32,26 +32,26 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  banner:{
-    height:200,
-    width:'100%',
-    backgroundColor:'red',
-    borderBottomRightRadius:10,
-    borderBottomLeftRadius:10,
+  banner: {
+    width: '100%',
+    backgroundColor: 'red',
+    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 10,
+    aspectRatio: 135 / 76,
   },
   bannerMenu: {
-    height:56,
-    width:'80%',
-    backgroundColor:'white',
-    bottom:0,
-    paddingHorizontal:20,
-    marginTop:-40,
-    alignItems:'center',
-    borderRadius:20,
-    flexDirection:'row',
-    flexWrap:'wrap',
-    justifyContent:'space-between',
-    alignContent:'center'
+    height: 56,
+    width: '80%',
+    backgroundColor: 'white',
+    bottom: 0,
+    paddingHorizontal: 20,
+    marginTop: -40,
+    alignItems: 'center',
+    borderRadius: 20,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    alignContent: 'center',
   },
   shadow: {
     backgroundColor: 'white',
@@ -63,6 +63,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.58,
     shadowRadius: 16.0,
     elevation: 24,
+  },
+  navbar: {
+    backgroundColor: '#2a9ee9',
+    justifyContent: 'space-between',
+    flexDirection:'row',
+    padding:10,
+    alignItems:'center'
   },
 });
 

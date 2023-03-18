@@ -28,29 +28,32 @@ const Profile = ({navigation}) => {
   }, [dispatch]);
 
   return (
-      <SafeAreaView style={styles.container}>
-        <View style={[styles.shadow,styles.containerProfile]}>
-          <TouchableOpacity>
-            <Image
-              source={{
-                uri: 'https://i.pinimg.com/originals/34/83/79/3483794198b80fc3746a76760cde6966.jpg',
-              }}
-              style={styles.imageProfile}
-            />
-          </TouchableOpacity>
+    <SafeAreaView style={styles.container}>
+      <View style={[styles.shadow, styles.containerProfile]}>
+        <TouchableOpacity>
+          <Image
+            source={{
+              uri: 'https://i.pinimg.com/originals/34/83/79/3483794198b80fc3746a76760cde6966.jpg',
+            }}
+            style={styles.imageProfile}
+          />
+        </TouchableOpacity>
 
-          <Text style={styles.name}>Azim Ganteng</Text>
-        </View>
-        <View style={[styles.containerMenu, styles.shadow]}>
-          {['Information', 'Devices Access','Help', 'Security', 'Exit'].map(menu => {
+        <Text style={styles.name}>Azim Ganteng</Text>
+        <Text>Member Pelit</Text>
+      </View>
+      <View style={[styles.containerMenu, styles.shadow]}>
+        {['Information', 'Devices Access', 'Help', 'Security', 'Exit'].map(
+          menu => {
             return (
               <TouchableOpacity key={menu}>
                 <Text style={styles.textMenu}>{menu}</Text>
               </TouchableOpacity>
             );
-          })}
-        </View>
-      </SafeAreaView>
+          },
+        )}
+      </View>
+    </SafeAreaView>
   );
 };
 
