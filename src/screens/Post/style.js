@@ -12,7 +12,6 @@ export const styles = StyleSheet.create({
       justifyContent: 'center',
       display: 'flex',
       alignItems: 'center',
-      borderRadius: 10000,
       width: 304,
       height: 304,
       borderColor: '#EB8C7C',

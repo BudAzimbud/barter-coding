@@ -78,7 +78,6 @@ const styles = StyleSheet.create({
   wrapperCard: {
     padding: 10,
     backgroundColor: 'white', //    <==== HERE
-    borderRadius: 10,
     borderRadius: 20,
     color: 'orange',
     shadowColor: '#000000',
@@ -115,7 +114,6 @@ const styles = StyleSheet.create({
     end: 65,
     top: 150,
     backgroundColor: 'white', //    <==== HERE
-    borderRadius: 10,
     borderRadius: 20,
     alignSelf: 'center',
     color: 'orange',
