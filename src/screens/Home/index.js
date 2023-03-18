@@ -44,6 +44,7 @@ const Home = ({navigation}) => {
         <TouchableHighlight>
           <Feather size={30} color="white" name="search" />
         </TouchableHighlight>
+        <Text style={{color:'white'}}>AzimAwesome</Text>
         <TouchableHighlight color="transparent">
           <Feather size={30} color="white" name="bell" />
         </TouchableHighlight>
