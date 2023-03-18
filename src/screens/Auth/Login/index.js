@@ -85,12 +85,7 @@ const Login = ({navigation}) => {
                 flexDirection: 'row',
                 alignItems: 'center',
               }}>
-              <CheckBox
-                tintColors={{true: 'blue', false: 'black'}}
-                animationDuration={0.5}
-                value={true}
-              />
-              <Text style={{marginLeft: 5}}>Remember Password</Text>
+            
             </View>
             <TouchableOpacity>
               <Text style={{fontWeight: '400', fontSize: 14, color: '#4D7EF9'}}>
