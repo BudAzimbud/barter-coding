@@ -8,12 +8,14 @@ import {
   Alert,
   SafeAreaView,
   Image,
+  StatusBar,
 } from 'react-native';
 import React, {useCallback} from 'react';
 import Card from '../../components/Card';
 import {useFocusEffect} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import styles from './style';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import useNavigation from './hooks/useNavigation';
 import {getProduct} from '../../redux/reducer/products/products.action';
 getProduct;
@@ -21,6 +23,7 @@ getProduct;
 const Home = ({navigation}) => {
   const dispatch = useDispatch();
   const {products, loading} = useSelector(state => state.products);
+  const insets = useSafeAreaInsets();
 
   useFocusEffect(
     useCallback(() => {
@@ -47,9 +50,9 @@ const Home = ({navigation}) => {
             style={styles.banner}
           />
           <View style={{display: 'flex', alignItems: 'center'}}>
-            <View style={[styles.bannerMenu,styles.shadow]}>
-              <Text style={{flex:1}}>Barang Saya</Text>
-              <Text style={{flex:1}}>Transaksi Saya</Text>
+            <View style={[styles.bannerMenu, styles.shadow]}>
+              <Text style={{flex: 1}}>Barang Saya</Text>
+              <Text style={{flex: 1}}>Transaksi Saya</Text>
             </View>
           </View>
         </View>

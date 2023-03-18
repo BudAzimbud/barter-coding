@@ -3,10 +3,11 @@ import {
   Text,
   StyleSheet,
   Image,
-  TouchableOpacity,
   Button,
+  TouchableOpacity,
 } from 'react-native';
 import React from 'react';
+// import Button from './Button';
 const Card = ({data, onPress = () => {}}) => {
   return (
     <View style={styles.container}>
@@ -42,7 +43,16 @@ const Card = ({data, onPress = () => {}}) => {
             Request Barter: {data.requestBarter} People
           </Text>
         </View>
-        <Button title="Barter" onPress={onPress} />
+        <TouchableOpacity
+          style={{
+            backgroundColor: '#2a9ee9',
+            padding: 10,
+            paddingVertical: 13,
+            borderRadius: 10,
+          }}>
+          <Text style={{color: 'white', textAlign: 'center'}}>Barter</Text>
+        </TouchableOpacity>
+        {/* <Button onPress={onPress}>Barter</Button> */}
       </View>
     </View>
   );
@@ -53,16 +63,16 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     borderRadius: 50,
-    marginRight:4,
+    marginRight: 4,
   },
   profile: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding:2,
-    gap:10
+    padding: 2,
+    gap: 10,
   },
   container: {
-    padding:10,
+    padding: 10,
     width: 195,
   },
   wrapperCard: {
