@@ -82,7 +82,7 @@ const Home = ({navigation}) => {
               data={products}
               keyExtractor={item => item.id}
               horizontal={false}
-              style={{paddingBottom: 50}}
+              style={{paddingBottom:100}}
               refreshControl={
                 <RefreshControl refreshing={loading} onRefresh={onRefresh} />
               }
