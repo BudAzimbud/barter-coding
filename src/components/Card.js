@@ -40,7 +40,7 @@ const Card = ({data, onPress = () => {}}) => {
         </Text>
         <View style={styles.footer}>
           <Text style={styles.barterText}>
-            Request Barter: {data.requestBarter} People
+            Request : {data.requestBarter} 
           </Text>
         </View>
         <TouchableOpacity
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   barterText: {
-    fontSize: 10,
+    fontSize: 14,
     color: '#4D7EF9',
     textAlign: 'center',
     marginBottom: 8,
@@ -119,14 +119,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignSelf: 'center',
     color: 'orange',
-    shadowColor: '#000000',
-    shadowOffset: {
-      width: 0,
-      height: 8,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 24,
-    elevation: 10,
+   
   },
   footer: {},
   rating: {
