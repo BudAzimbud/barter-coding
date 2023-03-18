@@ -41,7 +41,7 @@ const ProductsDetail = ({route}) => {
           <View>
             <Text style={styles.title}>{product.name}</Text>
             <View>
-              <Text style={{fontSize: 12, marginTop: 5}}>
+              <Text style={{fontSize: 15, marginTop: 5}}>
                 {'('}Request Barter : {product.requestBarter}
                 {')'}
               </Text>
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
   },
   description: {
     fontWeight: '300',
-    fontSize: 12,
+    fontSize: 15,
     color: 'black',
   },
   shadow: {
